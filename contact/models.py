@@ -3,7 +3,7 @@ from django.db import models
 
 first_name = models.CharField(max_length=30)
 last_name = models.CharField(max_length=30)
-email = models.EmailField(_(""), max_length=254, blank=True)
+email = models.EmailField(max_length=254, blank=True)
 category = models.CharField(max_length=50)
 created_date = models.DateTimeField(default=timezone.now)
 description = models.TextField(blank=True)
