@@ -10,7 +10,7 @@ static/
 # Backup files # 
 *.bak 
 
-# If you are using PyCharm # 
+# If you are using PyCharm 
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
@@ -33,11 +33,11 @@ static/
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
-# Gradle
+# Gradle #
 .idea/**/gradle.xml
 .idea/**/libraries
 
-# File-based project format
+# File-based project format #
 *.iws
 
 # IntelliJ
