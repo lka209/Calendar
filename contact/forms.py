@@ -7,7 +7,7 @@ class ContatoForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'placeholder': '+ (99) 99999-9999',
-                'id': 'Cellphone',
+                'id': 'phone',
             }
         )
     )
