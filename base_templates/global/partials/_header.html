@@ -22,8 +22,7 @@
 
   <div class="search">
     <form 
-      action="" 
-      method="get"
+      method="GET"
     >
       <input 
         type="search" 
@@ -31,6 +30,7 @@
         placeholder="Search"
         id="search"
         name="q"
+        value="{{ request.GET.q.strip }}"
       >
     </form>
   </div>
