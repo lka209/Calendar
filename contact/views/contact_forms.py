@@ -38,14 +38,14 @@ class ContactForm(forms.ModelForm):
 
 
     def create(request):
-      if request.method == 'POST':
-          print()
-          print(request.method)
-          print(request.POST.get('first_name'))
-          print(request.POST.get('last_name'))
-          print()
-          context = {
-              'form': ContactForm(request.POST)
+        if request.method == 'POST':
+            print('POST')
+            print(request.method)
+            print(request.POST.get('first_name'))
+            print(request.POST.get('last_name'))
+            print()
+            context = {
+                'form': ContactForm(request.POST)
         }
 
     context = {}
@@ -54,18 +54,17 @@ class ContactForm(forms.ModelForm):
             'contact/create.html',
             context
         )
-    
 
     context = {
         'form': ContactForm()
-    }
+}
 
     print()
     print(request.method)
     print()
 
-    return render(
-    request,
-    'contact/create.html',
-    context
-    )
+return render(
+request,
+'contact/create.html',
+context
+)
