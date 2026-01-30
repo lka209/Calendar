@@ -6,7 +6,8 @@
 <h2>Contact</h2>
 
 <form 
-action="{% url 'contact:create' %}"
+      action="{% url 'contact:create' %}"
+      action="{{ form_action }}"
 method="POST"
 enctype="multipart/form-data"
 >
@@ -20,9 +21,9 @@ enctype="multipart/form-data"
 {{ field }}
 {{ field.errors }}
 
-            {% if field.help_text %}
-              <p class="help-text">{{ field.help_text }}</p>
-            {% endif %}
+{% if field.help_text %}
+<p class="help-text">{{ field.help_text }}</p>
+{% endif %}
 </div>
 {% endfor %}
 </div>
