@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+
 from contact.forms import ContactForm
 from contact.models import Contact
 
@@ -8,31 +9,30 @@ from contact.models import Contact
 def create(request):
     form_action = reverse('contact:create')
 
-    if request.method == 'POST':
+if request.method == 'POST':
         form = ContactForm(request.POST)
 
-        context = {
-            'form': form,
+context = {
             'form': form,
             'form_action': form_action,
         }
 
-        if form.is_valid():
+if form.is_valid():
             contact = form.save()
             return redirect('contact:update', contact_id=contact.pk)
 
-        return render(
+            return render(
             request,
             'contact/create.html',
             context
         )
 
-    context = {
+context = {
         'form': ContactForm(),
         'form_action': form_action,
     }
 
-    return render(
+return render(
         request,
         'contact/create.html',
         context
@@ -51,28 +51,27 @@ def update(request, contact_id):
         context = {
             'form': form,
             'form_action': form_action,
-        }
+}
 
-        if form.is_valid():
+if form.is_valid():
             form.save()
             return redirect('contact:create')
             contact = form.save()
             return redirect('contact:update', contact_id=contact.pk)
 
-        return render(
-            request,
-            'contact/create.html',
-            context
-        )
+return render(
+    request,
+    'contact/create.html',
+    context
+)
 
-    context = {
-        'form': ContactForm(),
-        'form': ContactForm(instance=contact),
-        'form_action': form_action,
-    }
+context = {
+            'form': ContactForm(),
+            'form_action': form_action,
+        }
 
-    return render(
-        request,
-        'contact/create.html',
-        context
-    )
+return render(
+    request,
+    'contact/create.html',
+    context
+)
