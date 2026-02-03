@@ -13,15 +13,18 @@ class ContactForm(forms.ModelForm):
             attrs={
                 'accept': 'image/*',
             }
-        ),
-        required=False
+        )
     )
 
     class Meta:
         model = models.Contact
         fields = (
-            'first_name', 'last_name', 'phone',
-            'email', 'description', 'category',
+            'first_name',
+            'last_name',
+            'phone',
+            'email',
+            'description',
+            'category',
             'picture',
         )
 
@@ -69,8 +72,12 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = (
-            'first_name', 'last_name', 'email',
-            'username', 'password1', 'password2',
+            'first_name',
+            'last_name',
+            'email',
+            'username',
+            'password1',
+            'password2',
         )
 
     def clean_email(self):
@@ -105,7 +112,9 @@ class RegisterUpdateForm(forms.ModelForm):
     password1 = forms.CharField(
         label="Password",
         strip=False,
-        widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
+        widget=forms.PasswordInput(
+            attrs={"autocomplete": "new-password"}
+        ),
         help_text=password_validation.password_validators_help_text_html(),
         required=False,
     )
@@ -113,7 +122,9 @@ class RegisterUpdateForm(forms.ModelForm):
     password2 = forms.CharField(
         label="Password 2",
         strip=False,
-        widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
+        widget=forms.PasswordInput(
+            attrs={"autocomplete": "new-password"}
+        ),
         help_text='Use the same password as before.',
         required=False,
     )
@@ -121,7 +132,9 @@ class RegisterUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = (
-            'first_name', 'last_name', 'email',
+            'first_name',
+            'last_name',
+            'email',
             'username',
         )
 

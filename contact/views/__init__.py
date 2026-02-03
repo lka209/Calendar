@@ -13,3 +13,5 @@ def login_view(request):
     pass
 def logout_view(request):
     pass
+def user_update(request):
+    pass
