@@ -35,7 +35,7 @@ class ContactForm(forms.ModelForm):
 
         if first_name == last_name:
             msg = ValidationError(
-                'Primeiro nome não pode ser igual ao segundo',
+                'First name and last name cannot be the same',
                 code='invalid'
             )
             self.add_error('first_name', msg)
@@ -50,7 +50,7 @@ class ContactForm(forms.ModelForm):
             self.add_error(
                 'first_name',
                 ValidationError(
-                    'Veio do add_error',
+                    'Came from add_error',
                     code='invalid'
                 )
             )
@@ -86,7 +86,7 @@ class RegisterForm(UserCreationForm):
         if User.objects.filter(email=email).exists():
             self.add_error(
                 'email',
-                ValidationError('Já existe este e-mail', code='invalid')
+                ValidationError('Email already exists', code='invalid')
             )
 
         return email
@@ -159,7 +159,7 @@ class RegisterUpdateForm(forms.ModelForm):
             if password1 != password2:
                 self.add_error(
                     'password2',
-                    ValidationError('Senhas não batem')
+                    ValidationError('Passwords doenst match')
                 )
 
         return super().clean()
@@ -172,7 +172,7 @@ class RegisterUpdateForm(forms.ModelForm):
             if User.objects.filter(email=email).exists():
                 self.add_error(
                     'email',
-                    ValidationError('Já existe este e-mail', code='invalid')
+                    ValidationError('Email already exists', code='invalid')
                 )
 
         return email
