@@ -1,6 +1,9 @@
 # flake8: noqa
 # type: ignore
 from .contact_views import *
+from .contact_forms import *
+from .user_forms import *
+
 def create(request):
     pass
 def update(request, contact_id):
