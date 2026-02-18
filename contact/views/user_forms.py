@@ -1,7 +1,6 @@
 from django.contrib import auth, messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import redirect, render
-
 from contact.forms import RegisterForm
 
 
@@ -10,10 +9,10 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Usuário registrado')
+            messages.success(request, 'User registered successfully')
             return redirect('contact:login')
         else:
-            messages.error(request, 'Erro no registro. Verifique os dados.')
+            messages.error(request, 'Error registering user. Please check the data.')
     else:
         form = RegisterForm()
 
@@ -30,10 +29,10 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            messages.success(request, 'Logado com sucesso!')
+            messages.success(request, 'logged in')
             return redirect('contact:index')
         else:
-            messages.error(request, 'Login inválido')
+            messages.error(request, 'Login failed try again')
     else:
         form = AuthenticationForm(request)
 
@@ -46,5 +45,5 @@ def login_view(request):
 
 def logout_view(request):
     auth.logout(request)
-    messages.success(request, 'Você saiu da sessão.')
+    messages.success(request, 'You leave the section.')
     return redirect('contact:login')
